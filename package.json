@@ -1,0 +1,31 @@
+{
+  "scripts": {
+    "install": "cd ./node_modules/uikit && yarn && cd ../../ && symlink-dir ./node_modules/uikit ./assets/uikit",
+    "setup": "yarn && yarn compile",
+    "compile": "yarn compile-js && yarn compile-less && yarn compile-uikit",
+    "compile-uikit": "cd ./assets/uikit && yarn compile-less && yarn compile-rtl && yarn compile-js uikit && yarn compile-js tests",
+    "compile-js": "./node_modules/.bin/webpack -p",
+    "compile-less": "make-dir css && lessc custom/theme.less > css/theme.css --relative-urls --rootpath=../less/ -x",
+    "eslint": "eslint '**/app/**/*.+(js|vue)'",
+    "watch-js": "webpack -w --devtool=inline-source-map"
+  },
+  "eslintIgnore": [
+    "*.min.js",
+    "*.json"
+  ],
+  "dependencies": {
+    "buble": "^0.20.0",
+    "buble-loader": "^0.5.1",
+    "eslint": "7.29.0",
+    "eslint-plugin-vue": "^7.12.1",
+    "less": "^2.7.2",
+    "make-dir-cli": "^3.0.0",
+    "symlink-dir": "^5.0.1",
+    "uikit": "3.7.1",
+    "uniqid": "^5.3.0",
+    "vue-loader": "^15.9.7",
+    "vue-template-compiler": "^2.6.14",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}

@@ -3,12 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Landing Page</title>
+    <title>Home</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/theme.css" />
+    <script src="assets/uikit/dist/js/uikit.min.js"></script>
+    <script src="assets/uikit/dist/js/uikit-icons.min.js"></script>
   </head>
   <style>
     body {
@@ -16,39 +19,17 @@
     }
   </style>
   <body>
-    <header class="head bgcol">
-      <h1 id="head"style="font-size:48px;color:white;font-weight:bold;">Visio</h1>
-    </header>
-    <nav class="nav bgcol">
-      <i class="fa fa-eye" aria-hidden="true"></i>
-      <a class="textcol"href="#home"class="navitem">Home</a>
-      <a class="textcol"href="#vision"class="navitem">Our Vision</a>
-      <a class="textcol"href="#team"class="navitem">About Us</a>
-      <a class="textcol"href="#test"class="navitem">Testimonials</a>
-    </nav>
-    <section>
-      <img src="https://wallpapercave.com/wp/wp2061563.jpg"style="max-width: 100%;"/>
-    </section>
-    <section id="text">
-      <h1 class="center">Zeldo:</h1>
-      <h3 class="center">The Wind Waker HD</h3>
-      <p class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Feugiat in fermentum posuere urna. Amet nisl purus in mollis nunc. Tellus orci ac auctor augue mauris augue. Dolor morbi non arcu risus quis varius quam quisque id. Et malesuada fames ac turpis egestas sed tempus. Eget mi proin sed libero enim sed faucibus. Turpis massa sed elementum tempus. Congue eu consequat ac felis donec.</p>
-    </section>
-    <section class="gallery">
-      <article class="games bgcol1 center">
-        <h1>FFT</h1>
-        <img src="https://upload.wikimedia.org/wikipedia/en/4/4b/Fftbox.jpg"style="width:300px;height:300px;">
-      </article>
-      <article class="games bgcol1 center">
-        <h1>Suikoden</h1>
-          <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Suikoden2_NA.jpg"style="width:300px;height:300px;">
-      </article>
-      <article class="games bgcol1 center">
-        <h1>NieR</h1>
-          <img src="https://meccha-japan.com/79522-large_default/game-nier-replicant-ver122474487139-ps4.jpg"style="width:300px;height:300px;">
-      </article>
-    </section>
-    <footer class="bgcol">
-      <h4 class="textcol center">Agamcorp, 2021.</h4>
+    <div uk-switcher="animation: uk-animation-fade; toggle: > *">
+      <button class="uk-button uk-button-primary uk-active">
+        <img src="img/btmbar/deteksi.svg" uk-svg>
+      </button>    
+      <button class="uk-button uk-button-secondary">
+        <img src="img/btmbar/baca.svg" uk-svg>
+      </button>
+    </div>
+    <ul class="uk-switcher uk-margin">
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+      <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+    </ul>
   </body>
 </html>
