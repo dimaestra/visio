@@ -18,3 +18,18 @@ let teks = `
       </div>
 </div>
 `;
+
+// window.onload = () => {
+//   document.getElementById("recognize")
+//   Tesseract.recognize(vid)
+//   .then(result => {
+//     console.log(result.text);
+//   });
+// }
+// window.onload = () => {
+//   document.getElementById("recognize").onclick = () => {
+//     Tesseract.recognize(vid).then(function (result) {
+//       console.log(result.text);
+//     });
+//   };
+// };
