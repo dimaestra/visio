@@ -1,7 +1,7 @@
 let teks = `
 <ul id="btmbar" class="uk-margin uk-switcher">
         <li>
-          <video class="uk-position-absolute" id="vid"></video>
+          <video playsinline autoplay muted class="uk-position-absolute" id="vid"></video>
         </li>
         <li>
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
