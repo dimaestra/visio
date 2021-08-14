@@ -3,6 +3,7 @@ let contentDiv = document.getElementById('content');
 let routes = {
   '/': teks,
   '/index.html': teks,
+  '/objek': objek,
 };
 
 window.onpopstate = () => {

@@ -25,18 +25,21 @@
         <a class="uk-button uk-button-secondary uk-active" href="#" onclick="onNavItemClick('/'); return false;">
           <img src="img/topbar/teks.svg" uk-svg>
         </a>
-        <button class="uk-button uk-button-secondary uk-active">
+        <a class="uk-button uk-button-secondary uk-active href="#" onclick="onNavItemClick('/objek'); return false;">
           <img src="img/topbar/objek.svg" uk-svg>
-        </button>
-        <button class="uk-button uk-button-secondary uk-active">
+        </a>
+        <a class="uk-button uk-button-secondary uk-active">
           <img src="img/topbar/cari.svg" uk-svg>
-        </button>
+        </a>
       </div>
     </div>
     <!-- CONTENT -->
     <div id="content" class="content"></div>
     <!-- SCRIPT -->
+    
     <script type="text/javascript" src="./src/teks.js"></script>
+    <script type="text/javascript" src="./src/objek.js"></script>
     <script type="text/javascript" src="./src/index.js"></script>
+    <script async defer src="./src/kamera.js"></script>
   </body>
 </html>
