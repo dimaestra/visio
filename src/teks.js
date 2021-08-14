@@ -1,7 +1,12 @@
-// Oke sip, aku udh masuk
-// mantap
 let teks = `
-const htmlString = /*html*/
+<ul id="btmbar" class="uk-margin uk-switcher">
+        <li>
+          <video class="uk-position-absolute" id="vid"></video>
+        </li>
+        <li>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </li>
+</ul>
 <div class="uk-navbar-container" uk-navbar>
       <div uk-switcher="connect: #btmbar; animation: uk-animation-fade; toggle: > *">
         <button class="uk-button uk-button-primary uk-active">
@@ -12,12 +17,4 @@ const htmlString = /*html*/
         </button>
       </div>
 </div>
-<ul id="btmbar" class="uk-margin uk-switcher">
-    <li>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </li>
-    <li>
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </li>
-</ul>
 `;
