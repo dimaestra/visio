@@ -9,11 +9,6 @@
 //   .catch(function (err) {
 //     console.log({ err })
 //   });
-// terus aku nemu lagi yang aneh kak, jadi kalo var video ini kuhapus, kodenya ttp bisa jalan
-// padahal dia fungsinya buat select element :/
-// coba run deh, iya boleh
-// coba kutunjukkin lagi ya kak
-// tapi kalo
 const vid = document.getElementById("vid");
 
 vid.setAttribute("playsinline", true);
