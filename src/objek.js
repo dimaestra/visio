@@ -1,7 +1,7 @@
 let objek = `
 <ul id="btmbar" class="uk-margin uk-switcher">
     <li>
-      <video class="uk-position-absolute" id="vid"></video>
+      <video playsinline autoplay muted class="uk-position-absolute" id="vid"></video>
     </li>
 </ul>
 <div class="uk-navbar-container" uk-navbar>
