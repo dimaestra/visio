@@ -18,6 +18,42 @@ let teks = `
       </div>
 </div>
 `;
+const { createWorker, createScheduler } = Tesseract;
+const scheduler = createScheduler();
+let timerId = null;
+
+const doOCR = async () => {
+  const c = document.createElement('canvas');
+  c.width = 360;
+  c.height = 640;
+  c.getContext('2d').drawImage(vid, 0, 0, 360, 640);
+  // const start = new Date();
+  const { data: { text } } = await scheduler.addJob('recognize', c);
+  // const end = new Date()
+  text.split('\n').forEach((line) => {
+    console.log(line);
+  });
+};
+
+window.onload = (async () => {
+  const worker = createWorker();
+  await worker.load();
+  await worker.loadLanguage('eng');
+  await worker.initialize('eng');
+  scheduler.addWorker(worker);
+  
+  timerId = setInterval(doOCR, 1000);
+});
+
+
+
+  // video.addEventListener('pause', () => {
+  //   clearInterval(timerId);
+  // });
+  // video.addEventListener('play', () => {
+  // });
+  
+  // addMessage('Now you can play the video. :)');
 
 // window.onload = () => {
 //   document.getElementById("recognize")
@@ -26,6 +62,7 @@ let teks = `
 //     console.log(result.text);
 //   });
 // }
+
 // window.onload = () => {
 //   document.getElementById("recognize").onclick = () => {
 //     Tesseract.recognize(vid).then(function (result) {

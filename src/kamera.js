@@ -12,7 +12,6 @@
 
 const initCamera = () => {
   const vid = document.getElementById("vid");
-
   navigator.mediaDevices
     .getUserMedia({
       video: {
