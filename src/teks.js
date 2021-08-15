@@ -14,11 +14,11 @@ let teks = `
       aliquip ex ea commodo consequat.
     </li>
   </ul>
-  <div class="uk-navbar-container" uk-navbar>
+  <div class="uk-navbar-container uk-overlay uk-position-bottom uk-position-z-index uk-width-medium" uk-navbar>
     <div
       uk-switcher="connect: #btmbar; animation: uk-animation-fade; toggle: > *"
     >
-      <button id="recognize" class="uk-button uk-button-primary uk-active">
+      <button id="recognize" class="uk-button uk-button-primary uk-active ">
         <img src="img/btmbar/deteksi.svg" uk-svg />
       </button>
       <button class="uk-button uk-button-secondary">
