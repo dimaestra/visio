@@ -1,15 +1,3 @@
-// const constraints = {
-//   video: { width: 360, height: 640 }
-// };
-// navigator.mediaDevices.getUserMedia(constraints)
-//   .then(function (stream) {
-//     const video = document.querySelector("#player video");
-//     video.srcObject = stream
-//   })
-//   .catch(function (err) {
-//     console.log({ err })
-//   });
-
 const initCamera = () => {
   const vid = document.getElementById("vid");
   navigator.mediaDevices
