@@ -52,19 +52,25 @@ const doOCR = async () => {
   } = await scheduler.addJob("recognize", c);
   // const end = new Date()
   // speakText(text);
-  console.log({ text: sanitizeText(text) });
-  document.getElementById("result").textContent = sanitizeText(text);
+  console.log(sanitizeText(text));
+  speech.text = sanitizeText(text);
+  speechSynthesis.speak(speech);
 };
 
 const startOCR = async () => {
-  console.log("start");
-  const worker = createWorker();
+  const recognizer = document.getElementById("recognize");
+  const worker = createWorker({
+    // langPath: '.',
+    gzip: false,
+  });
   await worker.load();
   await worker.loadLanguage("eng");
+  await worker.loadLanguage('ind');
   await worker.initialize("eng");
+  await worker.initialize('ind');
   scheduler.addWorker(worker);
-  document.getElementById("recognize").onclick = doOCR;
-  console.log("end");
+  if (recognizer)
+    recognizer.onclick = doOCR;
 };
 
 // video.addEventListener('pause', () => {
