@@ -37,25 +37,34 @@ const sanitizeText = text => {
 
 const doOCR = async () => {
   const c = document.createElement("canvas");
-  c.width = 360;
-  c.height = 640;
-  c.getContext("2d").drawImage(vid, 0, 0, 360, 640);
+  const _video = document.getElementById("vid");
+  const video = window.getComputedStyle(_video);
 
+  const width = parseInt(video.getPropertyValue("width"));
+  const height = parseInt(video.getPropertyValue("height"));
+
+  c.width = width;
+  c.height = height;
+  c.getContext("2d").drawImage(vid, 0, 0, width, height);
+  c.style.filter = "contrast(1)";
   const {
     data: { text }
   } = await scheduler.addJob("recognize", c);
   // const end = new Date()
   // speakText(text);
   console.log({ text: sanitizeText(text) });
+  document.getElementById("result").textContent = sanitizeText(text);
 };
 
 const startOCR = async () => {
+  console.log("start");
   const worker = createWorker();
   await worker.load();
   await worker.loadLanguage("eng");
   await worker.initialize("eng");
   scheduler.addWorker(worker);
   document.getElementById("recognize").onclick = doOCR;
+  console.log("end");
 };
 
 // video.addEventListener('pause', () => {
