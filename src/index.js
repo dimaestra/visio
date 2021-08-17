@@ -11,4 +11,6 @@ let onNavItemClick = pathName => {
   window.history.pushState({}, pathName, window.location.origin + pathName);
   contentDiv.innerHTML = routes[pathName];
   initCamera();
+  if (pathName == "/")
+    startOCR();
 };

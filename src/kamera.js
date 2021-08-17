@@ -16,5 +16,4 @@ const initCamera = () => {
       console.log({ err });
     });
 };
-
 initCamera();
