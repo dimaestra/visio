@@ -6,11 +6,16 @@ let routes = {
 };
 
 contentDiv.innerHTML = routes[window.location.pathname];
-startOCR();
+
 let onNavItemClick = pathName => {
   window.history.pushState({}, pathName, window.location.origin + pathName);
   contentDiv.innerHTML = routes[pathName];
   initCamera();
-  if (pathName == "/") 
-    startOCR();
+  switch (pathName) {
+    case '/':
+      reader();
+      break;
+  }
+  // if (pathName == "/") 
+  //   startOCR();
 };
