@@ -19,14 +19,14 @@
 <style>
   body {
     font-family: 'Inter', sans-serif;
+    max-width: 360px;
+    position: relative;
   }
 </style>
 
 <body>
   <!-- HEADER NAV -->
-  <div class="uk-navbar-container uk-overlay uk-position-top uk-position-z-index" 
-  style="width: 100vw; height: 7vh;"
-  uk-navbar>
+  <div class="uk-navbar-container uk-overlay uk-position-top uk-position-z-index" uk-navbar>
     <div uk-switcher="animation: uk-animation-fade; toggle: > *">
       <a class="uk-button uk-button-secondary uk-active" href="#" onclick="onNavItemClick('/'); return false;">
         <img src="img/topbar/teks.svg" uk-svg>
@@ -40,7 +40,7 @@
     </div>
   </div>
   <!-- CONTENT -->
-  <div id="content" class="uk-position-top"></div>
+  <div id="content" class="uk-position-relative"></div>
   <!-- SCRIPT -->
   <script src="./src/teks.js"></script>
   <script defer src="./src/kamera.js"></script>

@@ -1,5 +1,5 @@
 let teks = `
-  <ul id="btmbar" class="uk-switcher uk-flex"style="height: 100vh; align-items: center;">
+  <ul id="btmbar" class="uk-position-relative uk-switcher uk-flex"style="height: 100vh; align-items: center;">
     <li>
       <video
         playsinline
@@ -7,6 +7,7 @@ let teks = `
         muted
         id="vid"
       ></video>
+      <canvas class="uk-position-absolute  uk-position-top" id="canvas" style="height: 100vh" width="360px"></canvas>
     </li>
     <li>
       <p>
