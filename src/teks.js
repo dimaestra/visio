@@ -1,5 +1,5 @@
 let teks = `
-  <ul id="btmbar" class="uk-margin uk-switcher uk-inline uk-flex"style="height: 100vh; align-items: center;">
+  <ul id="btmbar" class="uk-switcher uk-flex"style="height: 100vh; align-items: center;">
     <li>
       <video
         playsinline
@@ -15,7 +15,9 @@ let teks = `
       </p>
     </li>
   </ul>
-  <div class="uk-navbar-container uk-overlay uk-position-bottom uk-width-medium uk-height-small" uk-navbar>
+  <div class="uk-navbar-container uk-overlay uk-position-bottom" 
+  style="width: 100vw; height: 7vh;" 
+  uk-navbar>
     <div
       uk-switcher="connect: #btmbar; animation: uk-animation-fade; toggle: > *"
     >

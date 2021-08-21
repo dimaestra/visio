@@ -4,8 +4,8 @@ const initCamera = () => {
     .getUserMedia({
       video: {
         facingMode: "environment",
-        height: 640,
-        width: 360
+        height: window.screen.height,
+        width: window.screen.width
       }
     })
     .then(stream => {
@@ -15,5 +15,7 @@ const initCamera = () => {
     .catch(err => {
       console.log({ err });
     });
+    console.log(window.screen.height);
+    console.log(window.screen.width);
 };
 initCamera();

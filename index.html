@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" style="height: 640px; width: 360px;">
+<html lang="id">
 
 <head>
   <meta charset="utf-8">
@@ -14,7 +14,7 @@
   <script src="assets/uikit/dist/js/uikit.min.js"></script>
   <script src="assets/uikit/dist/js/uikit-icons.min.js"></script>
   <script src="node_modules/tesseract.js/dist/tesseract.min.js"></script>
-  <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+  <script src="node_modules/ml5/dist/ml5.min.js"></script>
 </head>
 <style>
   body {
@@ -24,8 +24,9 @@
 
 <body>
   <!-- HEADER NAV -->
-  <div class="uk-navbar-container uk-overlay uk-position-top uk-position-z-index uk-width-medium uk-height-small"
-    uk-navbar>
+  <div class="uk-navbar-container uk-overlay uk-position-top uk-position-z-index" 
+  style="width: 100vw; height: 7vh;"
+  uk-navbar>
     <div uk-switcher="animation: uk-animation-fade; toggle: > *">
       <a class="uk-button uk-button-secondary uk-active" href="#" onclick="onNavItemClick('/'); return false;">
         <img src="img/topbar/teks.svg" uk-svg>
