@@ -1,5 +1,24 @@
 const initCamera = () => {
   const vid = document.getElementById("vid");
+  const canvas = document.getElementById("canvas");
+
+  const ctx = canvas.getContext("2d");
+
+  // const heightToWidthRatio
+  vid.addEventListener("play", () => {
+    function step() {
+      ctx.drawImage(
+        vid,
+        0,
+        0,
+        (360 * vid.videoWidth) / canvas.width,
+        canvas.height
+      );
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  });
+
   navigator.mediaDevices
     .getUserMedia({
       video: {
@@ -15,7 +34,7 @@ const initCamera = () => {
     .catch(err => {
       console.log({ err });
     });
-    console.log(window.screen.height);
-    console.log(window.screen.width);
+  console.log(window.screen.height);
+  console.log(window.screen.width);
 };
 initCamera();
