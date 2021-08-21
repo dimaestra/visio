@@ -8,17 +8,8 @@ const sanitizeText = text => {
 };
 
 const doOCR = async () => {
-  const c = document.createElement("canvas");
-  const _video = document.getElementById("vid");
-  const video = window.getComputedStyle(_video);
+  const c = document.getElementById("canvas");
 
-  const width = parseInt(video.getPropertyValue("width"));
-  const height = parseInt(video.getPropertyValue("height"));
-
-  c.width = width;
-  c.height = height;
-  c.getContext("2d").drawImage(vid, 0, 0, width, height);
-  c.style.filter = "contrast(1)";
   const {
     data: { text }
   } = await scheduler.addJob("recognize", c);
