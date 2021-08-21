@@ -1,5 +1,5 @@
 let teks = `
-  <ul id="btmbar" class="uk-margin uk-switcher uk-inline">
+  <ul id="btmbar" class="uk-margin uk-switcher uk-inline uk-flex"style="height: 100vh; align-items: center;">
     <li>
       <video
         playsinline
@@ -8,9 +8,11 @@ let teks = `
         id="vid"
       ></video>
     </li>
-    <li class="uk-position-absolute uk-transform-center" style="left: 50%; top: 50%">
+    <li>
+      <p>
       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
       aliquip ex ea commodo consequat.
+      </p>
     </li>
   </ul>
   <div class="uk-navbar-container uk-overlay uk-position-bottom uk-width-medium uk-height-small" uk-navbar>
