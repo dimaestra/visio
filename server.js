@@ -1,7 +1,7 @@
 const fs = require("fs");
 const http = require("http");
 const staticFolder = "/";
-
+const port = process.env.PORT || 8080
 http
   .createServer(function (req, res) {
     const reservedPath = ['/', "/kamera", "/objek"]
@@ -18,4 +18,4 @@ http
       res.end(data);
     });
   })
-  .listen(8080);
+  .listen(port);
