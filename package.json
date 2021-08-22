@@ -18,6 +18,7 @@
     "buble": "^0.20.0",
     "buble-loader": "^0.5.1",
     "make-dir-cli": "^3.0.0",
+    "ml5": "^0.6.1",
     "symlink-dir": "^5.0.1",
     "tesseract.js": "^2.1.5",
     "uikit": "3.7.1",

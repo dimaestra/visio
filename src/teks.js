@@ -7,7 +7,6 @@ let teks = `
         muted
         id="vid"
       ></video>
-      <canvas class="uk-position-absolute  uk-position-top" id="canvas" style="height: 100vh" width="360px"></canvas>
     </li>
     <li>
       <p>
@@ -16,8 +15,7 @@ let teks = `
       </p>
     </li>
   </ul>
-  <div class="uk-navbar-container uk-overlay uk-position-bottom" 
-  style="width: 100vw; height: 7vh;" 
+  <div class="uk-navbar-container uk-overlay uk-position-bottom uk-height-small" 
   uk-navbar>
     <div
       uk-switcher="connect: #btmbar; animation: uk-animation-fade; toggle: > *"
