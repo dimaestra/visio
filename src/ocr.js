@@ -1,11 +1,7 @@
 const { createWorker, createScheduler } = Tesseract;
 const scheduler = createScheduler();
 const worker = createWorker();
-let timerId = null;
-
-const sanitizeText = text => {
-  return text.replace(/[^a-zA-Z0-9 ]/g, "");
-};
+let timerOCR = null;
 
 const doOCR = async () => {
   const c = document.createElement("canvas");
@@ -40,9 +36,5 @@ const loader = async () => {
 const reader = async () => {
   await loader();
   scheduler.addWorker(worker);
-  timerId = setInterval(doOCR, 3000);
-};
-
-const stopInterval = () => {
-  clearInterval(timerId);
+  timerOCR = setInterval(doOCR, 3000);
 };

@@ -1,4 +1,4 @@
-let objek = `
+let cari = `
 <ul id="btmbar" class="uk-switcher uk-flex"style="height: 100vh; align-items: center;">
     <li>
       <video 

@@ -8,8 +8,8 @@ const initCamera = () => {
   .getUserMedia({
     video: {
       facingMode: "environment",
-      width: window.outerHeight,
-      height: window.outerWidth
+      width: window.innerHeight,
+      height: window.innerWidth
     }
   })
   .then(stream => {

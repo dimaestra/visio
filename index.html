@@ -25,13 +25,13 @@
   <!-- HEADER NAV -->
   <div class="uk-navbar-container uk-overlay uk-position-top uk-position-z-index uk-height-small" uk-navbar>
     <div uk-switcher="animation: uk-animation-fade; toggle: > *">
-      <a class="uk-button uk-button-secondary uk-active" href="#" onclick="onNavItemClick('/'); return false;">
+      <a class="uk-button uk-button-secondary uk-active" href="#" onclick="onNavItemClick('/'); clearInterval(detect); reader(); return false;">
         <img src="img/topbar/teks.svg" uk-svg>
       </a>
-      <a class="uk-button uk-button-secondary uk-active href=" #" onclick="onNavItemClick('/objek'); return false;">
+      <a class="uk-button uk-button-secondary" href=" #" onclick="onNavItemClick('/objek'); clearInterval(timerOCR); detect = setInterval(doDetect, 3000); return false;">
         <img src="img/topbar/objek.svg" uk-svg>
       </a>
-      <a class="uk-button uk-button-secondary uk-active">
+      <a class="uk-button uk-button-secondary" href=" #" onclick="onNavItemClick('/cari'); clearInterval(detect); clearInterval(timerOCR); ">
         <img src="img/topbar/cari.svg" uk-svg>
       </a>
     </div>
@@ -43,10 +43,12 @@
   <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
 
   <script src="./src/teks.js"></script>
-  <script defer src="./src/kamera.js"></script>
   <script src="./src/objek.js"></script>
-  <script defer src="./src/speech.js"></script>
+  <script src="./src/cari.js"></script>
   <script src="./src/ocr.js"></script>
+  <script src="./src/deteksi_objek.js"></script>
+  <script defer src="./src/kamera.js"></script>
+  <script defer src="./src/speech.js"></script>
   <script src="./src/index.js"></script>
 </body>
 
