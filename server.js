@@ -4,7 +4,7 @@ const staticFolder = "/";
 const port = process.env.PORT || 8080
 http
   .createServer(function (req, res) {
-    const reservedPath = ['/', "/kamera", "/objek"]
+    const reservedPath = ['/', "/objek", "/cari"]
     if (reservedPath.includes(req.url)) {
       req.url = "index.html";
     }

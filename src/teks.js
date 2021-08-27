@@ -15,7 +15,7 @@ let teks = `
       </p>
     </li>
   </ul>
-  <div class="uk-navbar-container uk-overlay uk-position-bottom uk-height-small" 
+  <div class="uk-navbar-container uk-flex-center uk-overlay uk-position-bottom uk-height-small" 
   uk-navbar>
     <div
       uk-switcher="connect: #btmbar; animation: uk-animation-fade; toggle: > *"
