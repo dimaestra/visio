@@ -11,8 +11,8 @@ function modelLoaded() {
 const doDetect = () => {
   const video = document.getElementById("vid");
   objectDetector.detect(video, (err, results) => {
-    console.log(results[0]);
-    speech.text = results[0];
+    console.log(results[0].label);
+    speech.text = results[0].label;
     speechSynthesis.speak(speech); // Will output bounding boxes of detected objects
   });
 }
