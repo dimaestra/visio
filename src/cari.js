@@ -7,7 +7,7 @@ let cari = `
 </video>
 <div class="uk-navbar-container uk-flex-center uk-overlay uk-position-bottom uk-height-small" 
 uk-navbar>
-<ul class="uk-tab-bottom" uk-tab>
+<ul class="uk-tab-bottom uk-slider-items" uk-tab>
   <li class="uk-active">
     <button class="uk-button uk-button-secondary uk-active">
     <img src="img/items/elektronik.svg" uk-svg>
