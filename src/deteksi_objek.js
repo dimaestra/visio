@@ -1,6 +1,6 @@
 // Create a ObjectDetector method
 let detect = null;
-const objectDetector = ml5.objectDetector("cocossd", {}, modelLoaded);
+const objectDetector = ml5.objectDetector("yolo", {}, modelLoaded);
 
 // When the model is loaded
 function modelLoaded() {

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "nodemon --watch public server.js",
+    "dev": "nodemon --watch public server.js server.jsyar",
     "install": "cd ./node_modules/uikit && yarn && cd ../../ && symlink-dir ./node_modules/uikit ./assets/uikit",
     "setup": "yarn && yarn compile",
     "compile": "yarn compile-js && yarn compile-less && yarn compile-uikit",
@@ -15,8 +15,10 @@
     "*.json"
   ],
   "dependencies": {
+    "bing-translate-api": "^2.2.1",
     "buble": "^0.20.0",
     "buble-loader": "^0.5.1",
+    "express": "^4.17.1",
     "make-dir-cli": "^3.0.0",
     "ml5": "^0.6.1",
     "symlink-dir": "^5.0.1",
