@@ -6,7 +6,7 @@ let cari = `
    id="vid">
 </video>
 <div class="uk-navbar-container uk-flex-center uk-overlay uk-position-bottom uk-height-small" 
-uk-navbar>
+uk-navbar uk-slider>
 <ul class="uk-tab-bottom uk-slider-items" uk-tab>
   <li class="uk-active">
     <button class="uk-button uk-button-secondary uk-active">
