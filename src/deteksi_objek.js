@@ -1,6 +1,7 @@
 // Create a ObjectDetector method
 let detect = null;
-const objectDetector = ml5.objectDetector("yolo", {}, modelLoaded);
+// const objectDetector = ml5.objectDetector("yolo", {}, modelLoaded);
+const classifier = ml5.imageClassifier("MobileNet", modelLoaded);
 
 // When the model is loaded
 function modelLoaded() {
@@ -10,9 +11,10 @@ function modelLoaded() {
 // Detect objects in the video element
 const doDetect = () => {
   const video = document.getElementById("vid");
-  objectDetector.detect(video, (err, results) => {
-    console.log(results[0].label);
-    speech.text = results[0].label;
-    speechSynthesis.speak(speech); // Will output bounding boxes of detected objects
-  });
-}
+  classifier.classify(video, 1, (error, result) => console.log({ result }));
+  // objectDetector.detect(video, (err, results) => {
+  //   console.log(results[0].label);
+  //   speech.text = results[0].label;
+  //   speechSynthesis.speak(speech); // Will output bounding boxes of detected objects
+  // });
+};
