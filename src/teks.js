@@ -1,5 +1,5 @@
 let teks = `
-  <ul id="btmbar" class="uk-position-relative uk-switcher uk-flex"style="height: 100vh; align-items: center;">
+  <ul id="btmbar" class="uk-switcher uk-flex uk-flex-center"style="height: 100vh; align-items: center;">
     <li>
       <video
         playsinline
