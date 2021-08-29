@@ -1,13 +1,20 @@
 let detect = null;
 
 // When the model is loaded
-function modelLoaded() {
-  console.log("Model Loaded!");
-}
+
 /**
  * Loads a JavaScript file and returns a Promise for when it is loaded
  */
+
+const loadedScripts = [];
+
 const loadScript = src => {
+  if (loadedScripts.includes(src)) {
+    return Promise.resolve(false);
+  }
+
+  loadedScripts.push(src);
+
   return new Promise((resolve, reject) => {
     const script = document.createElement("script");
     script.type = "text/javascript";
@@ -27,9 +34,10 @@ const translate = text =>
     body: JSON.stringify({ originalText: text })
   });
 
+let classifier;
+
 // Detect objects in the video element
 const doDetect = async () => {
-  const classifier = ml5.imageClassifier("MobileNet", modelLoaded);
   const video = document.getElementById("vid");
   classifier.classify(video, 1, async (err, result) => {
     const response = await translate(result[0].label);

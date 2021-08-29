@@ -5,22 +5,37 @@ let routes = {
   "/cari": cari
 };
 
-contentDiv.innerHTML = routes[window.location.pathname];
-switch (window.location.pathname) {
-  case "/":
-    reader();
-    break;
-  case "/objek":
-    const loadDetect = async () => {
-      await loadScript("https://unpkg.com/ml5@latest/dist/ml5.min.js");
-      setInterval(doDetect, 3000);
-    };
-    loadDetect();
-    break;
-}
+const loadContent = () => {
+  contentDiv.innerHTML = routes[window.location.pathname];
+  switch (window.location.pathname) {
+    case "/":
+      reader();
+      break;
+    case "/objek":
+      const loadDetect = async () => {
+        const res = await loadScript(
+          "https://unpkg.com/ml5@latest/dist/ml5.min.js"
+        );
+
+        if (res) {
+          function modelLoaded() {
+            console.log("Model Loaded!");
+          }
+          classifier = ml5.imageClassifier("MobileNet", modelLoaded);
+        }
+
+        // nanti janglup diganti trigger button ya ini
+        setInterval(doDetect, 3000);
+      };
+      loadDetect();
+      break;
+  }
+};
+
+loadContent();
 
 let onNavItemClick = pathName => {
   window.history.pushState({}, pathName, window.location.origin + pathName);
-  contentDiv.innerHTML = routes[pathName];
+  loadContent();
   initCamera();
 };
