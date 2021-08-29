@@ -11,7 +11,11 @@ switch (window.location.pathname) {
     reader();
     break;
   case '/objek':
-    setInterval(doDetect, 3000);
+    const loadDetect = async () => {
+      await loadMl5("https://unpkg.com/ml5@latest/dist/ml5.min.js");
+      setInterval(doDetect, 3000);
+    }
+    loadDetect();
     break;
 }
 

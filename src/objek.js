@@ -1,5 +1,5 @@
 let objek = `
-<ul id="btmbar" class="uk-switcher uk-flex"style="height: 100vh; align-items: center;">
+<ul id="btmbar" class="uk-switcher uk-flex uk-flex-center"style="height: 100vh; align-items: center;">
     <li>
       <video 
         playsinline 
@@ -7,6 +7,8 @@ let objek = `
         muted 
         id="vid"
       ></video>
+      <button class="uk-button uk-button-secondary uk-position-relative uk-overlay uk-position-z-index"
+      >Deteksi</button>
     </li>
 </ul>
 <div class="uk-navbar-container uk-flex-center uk-overlay uk-position-bottom uk-height-small" 
