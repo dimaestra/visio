@@ -7,8 +7,6 @@ let objek = `
         muted 
         id="vid"
       ></video>
-      <button class="uk-button uk-button-secondary uk-position-relative uk-overlay uk-position-z-index"
-      >Deteksi</button>
     </li>
 </ul>
 <div class="uk-navbar-container uk-flex-center uk-overlay uk-position-bottom uk-height-small" 

@@ -1,16 +1,15 @@
 let contentDiv = document.getElementById("content");
 let routes = {
   "/": teks,
-  "/objek": objek,
-  "/cari": cari
+  "/objek": objek
 };
 let queueCount = [];
-const intervalQueue = process => {
+const intervalQueue = (process) => {
   queueCount.push(setInterval(process, 3000));
-}
+};
 const removeQueue = () => {
   queueCount.forEach(clearInterval);
-}
+};
 const loadContent = () => {
   contentDiv.innerHTML = routes[window.location.pathname];
   switch (window.location.pathname) {
@@ -34,7 +33,6 @@ const loadContent = () => {
           classifier = ml5.imageClassifier("MobileNet", modelLoaded);
         }
 
-        // nanti janglup diganti trigger button ya ini
         intervalQueue(doDetect);
       };
       loadDetect();
@@ -44,7 +42,7 @@ const loadContent = () => {
 
 loadContent();
 
-let onNavItemClick = pathName => {
+let onNavItemClick = (pathName) => {
   window.history.pushState({}, pathName, window.location.origin + pathName);
   loadContent();
   initCamera();
