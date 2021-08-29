@@ -1,4 +1,4 @@
-let contentDiv = document.getElementById("content"); 
+let contentDiv = document.getElementById("content");
 let routes = {
   "/": teks,
   "/objek": objek,
@@ -7,14 +7,14 @@ let routes = {
 
 contentDiv.innerHTML = routes[window.location.pathname];
 switch (window.location.pathname) {
-  case '/':
+  case "/":
     reader();
     break;
-  case '/objek':
+  case "/objek":
     const loadDetect = async () => {
-      await loadMl5("https://unpkg.com/ml5@latest/dist/ml5.min.js");
+      await loadScript("https://unpkg.com/ml5@latest/dist/ml5.min.js");
       setInterval(doDetect, 3000);
-    }
+    };
     loadDetect();
     break;
 }
