@@ -10,7 +10,7 @@ const loadedScripts = [];
 
 const loadScript = src => {
   if (loadedScripts.includes(src)) {
-    return Promise.resolve(false);
+    return Promise.reject;
   }
 
   loadedScripts.push(src);

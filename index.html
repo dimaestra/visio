@@ -17,7 +17,6 @@
 <style>
   body {
     font-family: 'Inter', sans-serif;
-    position: relative;
   }
 </style>
 
@@ -25,13 +24,13 @@
   <!-- HEADER NAV -->
   <div class="uk-navbar-container uk-flex-center uk-overlay uk-position-top uk-position-z-index uk-height-small" uk-navbar>
     <div uk-switcher="animation: uk-animation-fade; toggle: > *">
-      <a class="uk-button uk-button-secondary uk-active" href="#" onclick="onNavItemClick('/'); clearInterval(detect); reader(); return false;">
+      <a class="uk-button uk-button-secondary uk-active" href="#" onclick="onNavItemClick('/'); return false;">
         <img src="img/topbar/teks.svg" uk-svg>
       </a>
-      <a class="uk-button uk-button-secondary" href=" #" onclick="onNavItemClick('/objek'); clearInterval(timerOCR); detect = setInterval(doDetect, 3000); return false;">
+      <a class="uk-button uk-button-secondary" href=" #" onclick="onNavItemClick('/objek'); return false;">
         <img src="img/topbar/objek.svg" uk-svg>
       </a>
-      <a class="uk-button uk-button-secondary" href=" #" onclick="onNavItemClick('/cari'); clearInterval(detect); clearInterval(timerOCR); return false;">
+      <a class="uk-button uk-button-secondary" href=" #" onclick="onNavItemClick('/cari'); return false;">
         <img src="img/topbar/cari.svg" uk-svg>
       </a>
     </div>

@@ -4,14 +4,24 @@ let routes = {
   "/objek": objek,
   "/cari": cari
 };
-
+let queueCount = [];
+const intervalQueue = process => {
+  queueCount.push(setInterval(process, 3000));
+}
+const removeQueue = () => {
+  queueCount.forEach(clearInterval);
+}
 const loadContent = () => {
   contentDiv.innerHTML = routes[window.location.pathname];
   switch (window.location.pathname) {
     case "/":
-      reader();
+      removeQueue();
+      langLoader();
+      scheduler.addWorker(worker);
+      intervalQueue(doOCR);
       break;
     case "/objek":
+      removeQueue();
       const loadDetect = async () => {
         const res = await loadScript(
           "https://unpkg.com/ml5@latest/dist/ml5.min.js"
@@ -25,7 +35,7 @@ const loadContent = () => {
         }
 
         // nanti janglup diganti trigger button ya ini
-        setInterval(doDetect, 3000);
+        intervalQueue(doDetect);
       };
       loadDetect();
       break;

@@ -1,10 +1,12 @@
 let cari = `
-<video
-  playsinline
-  autoplay
-  muted
-   id="vid">
-</video>
+<div class="uk-flex uk-flex-center">
+  <video
+    playsinline
+    autoplay
+    muted
+    id="vid"
+  ></video>
+</div>
 <div class="uk-navbar-container uk-flex-center uk-overlay uk-position-bottom uk-height-small" 
 uk-navbar>
 <ul class="uk-tab-bottom uk-slider-items" uk-tab>
