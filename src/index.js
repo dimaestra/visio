@@ -4,7 +4,7 @@ let routes = {
   "/objek": objek
 };
 let queueCount = [];
-const intervalQueue = (process) => {
+const queue = process => {
   queueCount.push(setInterval(process, 3000));
 };
 const removeQueue = () => {
@@ -17,7 +17,7 @@ const loadContent = () => {
       removeQueue();
       langLoader();
       scheduler.addWorker(worker);
-      intervalQueue(doOCR);
+      requestAnimationFrame(step);
       break;
     case "/objek":
       removeQueue();
@@ -30,7 +30,7 @@ const loadContent = () => {
           function modelLoaded() {
             console.log("Model Loaded!");
           }
-          classifier = ml5.imageClassifier("MobileNet", modelLoaded);
+          objectDetector = ml5.objectDetector("yolo", modelLoaded);
         }
 
         intervalQueue(doDetect);
