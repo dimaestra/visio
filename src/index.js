@@ -32,8 +32,8 @@ const loadContent = () => {
           }
           objectDetector = ml5.objectDetector("yolo", modelLoaded);
         }
-
-        intervalQueue(doDetect);
+        console.log("RUN");
+        queue(doDetect);
       };
       loadDetect();
       break;
@@ -42,7 +42,7 @@ const loadContent = () => {
 
 loadContent();
 
-let onNavItemClick = (pathName) => {
+let onNavItemClick = pathName => {
   window.history.pushState({}, pathName, window.location.origin + pathName);
   loadContent();
   initCamera();

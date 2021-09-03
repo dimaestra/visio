@@ -34,15 +34,21 @@ const translate = text =>
     body: JSON.stringify({ originalText: text })
   });
 
-let classifier;
+let objectDetector;
 
 // Detect objects in the video element
 const doDetect = async () => {
+  console.log("do detect run");
   const video = document.getElementById("vid");
-  classifier.classify(video, 1, async (err, result) => {
+  objectDetector.detect(video, async (err, result) => {
+    // console.log({ err });
+    // console.log({ result });
     const response = await translate(result[0].label);
     const { translation } = await response.json();
     console.log({ translation });
+    // const response = await translate(result[0].label);
+    // const { translation } = await response.json();
+    // console.log({ translation });
     // tinggal konekin ke speech synthesis
   });
 };
