@@ -1,40 +1,24 @@
-const fs = require("fs");
-const http = require("http");
-const staticFolder = "/";
-const port = process.env.PORT || 8080;
 const { translate } = require("bing-translate-api");
-http
-  .createServer(async function (req, res) {
-    const reservedPath = ["/", "/objek"];
-    if (reservedPath.includes(req.url)) {
-      req.url = "index.html";
-    }
-    if (req.method === "POST" && req.url === "/translate") {
-      try {
-        let body = "";
-        await req.on("data", (chunk) => {
-          body += chunk.toString();
-        });
+// const reservedPath = ["/", "/objek"];
+const port = process.env.PORT || 8080;
+const path = require("path");
 
-        await translate(JSON.parse(body).originalText, "en", "id", true).then(
-          (result) => {
-            res.writeHead(200);
-            res.end(JSON.stringify(result));
-          }
-        );
-      } catch (err) {
-        res.write(500);
-        res.end(JSON.stringify);
-      }
-    }
-    fs.readFile(__dirname + staticFolder + req.url, function (err, data) {
-      if (err) {
-        res.writeHead(404);
-        res.end(JSON.stringify(err));
-        return;
-      }
+// express server on port 4000
+const express = require("express");
+const app = express();
+
+app.get(["/", "/objek"], function (req, res, next) {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+app.use(express.static("."));
+
+app.post("/translate", async (req, res) => {
+  await translate(JSON.parse(req.body).originalText, "en", "id", true).then(
+    result => {
       res.writeHead(200);
-      res.end(data);
-    });
-  })
-  .listen(port);
+      res.end(JSON.stringify(result));
+    }
+  );
+});
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
