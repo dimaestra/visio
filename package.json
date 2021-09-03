@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "dev": "nodemon --watch public server.js server.jsyar",
+    "dev": "nodemon --watch server.js server.js",
     "install": "cd ./node_modules/uikit && yarn && cd ../../ && symlink-dir ./node_modules/uikit ./assets/uikit",
+    "build": "yarn && yarn compile",
     "setup": "yarn && yarn compile",
     "compile": "yarn compile-js && yarn compile-less && yarn compile-uikit",
     "compile-uikit": "cd ./assets/uikit && yarn compile-less && yarn compile-rtl && yarn compile-js uikit && yarn compile-js tests",
