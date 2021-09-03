@@ -1,14 +1,16 @@
 let teks = `
   <ul id="btmbar" class="uk-switcher uk-flex uk-flex-center"style="height: 100vh; align-items: center;">
     <li>
-      <video
+      <div style="position: relative">
+        <video
         playsinline
         autoplay
         muted
         id="vid"
-      ></video>
-      <canvas id="canvas"
-      ></canvas>
+        ></video>
+        <canvas id="overlay" style="position:absolute; top: 0; left: 0"
+        ></canvas>
+      </div>
     </li>
     <li>
       <p>
