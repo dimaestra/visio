@@ -16,10 +16,13 @@ const loadContent = () => {
     case "/":
       removeQueue();
       (async () => await langLoader())();
+      scheduler.addWorker(worker);
       requestAnimationFrame(step);
+      queue(doOCR);
       break;
     case "/objek":
       removeQueue();
+      (async () => await scheduler.terminate())();
       const loadDetect = async () => {
         const res = await loadScript(
           "https://unpkg.com/ml5@latest/dist/ml5.min.js"

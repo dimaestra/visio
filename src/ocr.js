@@ -4,24 +4,29 @@ const worker = createWorker();
 
 function step() {
   const c = document.createElement("canvas");
+  const ctx = c.getContext("2d");
   const _video = document.getElementById("vid");
   const video = window.getComputedStyle(_video);
   const width = parseInt(video.getPropertyValue("width"));
   const height = parseInt(video.getPropertyValue("height"));
-  const ctx = c.getContext("2d");
   c.width = width;
   c.height = height;
-  c.style.filter = "grayscale(120%)";
   ctx.drawImage(vid, 0, 0, c.width, c.height);
-  doOCR(c, { width, height });
   requestAnimationFrame(step);
 }
 
-const doOCR = async (c, dimension) => {
-  scheduler.addWorker(worker);
+const doOCR = async () => {
+  const c = document.createElement("canvas");
+  const ctx = c.getContext("2d");
+  const _video = document.getElementById("vid");
+  const video = window.getComputedStyle(_video);
+  const width = parseInt(video.getPropertyValue("width"));
+  const height = parseInt(video.getPropertyValue("height"));
+  c.width = width;
+  c.height = height;
+  ctx.drawImage(vid, 0, 0, c.width, c.height);
   const { data } = await scheduler.addJob("recognize", c);
-  result(data, dimension);
-
+  result(data, { width, height });
 
   // console.log(data)
   // speech.text = sanitizeText(text);
@@ -38,9 +43,10 @@ function result(res, dimension) {
   overlay.height = dimension.height;
   let wordsFilter = [];
   wordsFilter = res.words.filter((wordsFilter) => {
-    return wordsFilter.confidence > 40;
+    return wordsFilter.confidence > 60;
   });
   wordsFilter.forEach((w) => {
+    console.log(w.text);
     let b = w.bbox;
     ctx.strokeWidth = 2;
     ctx.strokeStyle = "green";
