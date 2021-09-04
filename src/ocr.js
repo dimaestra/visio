@@ -18,8 +18,12 @@ function step() {
 }
 
 const doOCR = async (c, dimension) => {
+  scheduler.addWorker(worker);
   const { data } = await scheduler.addJob("recognize", c);
   result(data, dimension);
+
+
+  // console.log(data)
   // speech.text = sanitizeText(text);
   // speechSynthesis.speak(speech);
   // console.log(sanitizeText(text));
@@ -32,15 +36,13 @@ function result(res, dimension) {
   const ctx = overlay.getContext("2d");
   overlay.width = dimension.width;
   overlay.height = dimension.height;
-  const wordsFilter = res.words.filter((wordsFilter) => {
-    wordsFilter.confidence > 0
+  let wordsFilter = [];
+  wordsFilter = res.words.filter((wordsFilter) => {
+    return wordsFilter.confidence > 40;
   });
-  console.log(wordsFilter);
   wordsFilter.forEach((w) => {
-    var b = w.bbox;
-
+    let b = w.bbox;
     ctx.strokeWidth = 2;
-
     ctx.strokeStyle = "green";
     ctx.lineWidth = 4;
     ctx.strokeRect(b.x0, b.y0, b.x1 - b.x0, b.y1 - b.y0);
@@ -48,10 +50,6 @@ function result(res, dimension) {
     ctx.moveTo(w.baseline.x0, w.baseline.y0);
     ctx.lineTo(w.baseline.x1, w.baseline.y1);
     ctx.stroke();
-
-  //   // octx.font = '20px Times';
-  //   // octx.font = 20 * (b.x1 - b.x0) / octx.measureText(w.text).width + "px Times";
-  //   // octx.fillText(w.text, b.x0, w.baseline.y0);
   });
 }
 

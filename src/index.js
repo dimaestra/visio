@@ -15,8 +15,7 @@ const loadContent = () => {
   switch (window.location.pathname) {
     case "/":
       removeQueue();
-      langLoader();
-      scheduler.addWorker(worker);
+      (async () => await langLoader())();
       requestAnimationFrame(step);
       break;
     case "/objek":
