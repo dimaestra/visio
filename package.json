@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "nodemon --watch public server.js server.jsyar",
+    "dev": "nodemon --watch public server.js server.js",
     "install": "cd ./node_modules/uikit && yarn && cd ../../ && symlink-dir ./node_modules/uikit ./assets/uikit",
     "setup": "yarn && yarn compile",
     "compile": "yarn compile-js && yarn compile-less && yarn compile-uikit",
@@ -15,22 +15,30 @@
     "*.json"
   ],
   "dependencies": {
+    "@google-cloud/vision": "^2.3.8",
     "bing-translate-api": "^2.2.1",
     "buble": "^0.20.0",
     "buble-loader": "^0.5.1",
+    "clean-css": "^5.1.5",
+    "dotenv": "^10.0.0",
+    "eslint": "7.29.0",
     "express": "^4.17.1",
+    "less": "^2.7.2",
     "make-dir-cli": "^3.0.0",
     "ml5": "^0.6.1",
+    "multer": "^1.4.3",
+    "nodemon": "^2.0.12",
+    "postcss": "^8.3.6",
+    "rollup": "^2.56.3",
+    "svgo": "^2.5.0",
     "symlink-dir": "^5.0.1",
     "tesseract.js": "^2.1.5",
+    "uglify-js": "^3.14.1",
     "uikit": "3.7.1",
     "uniqid": "^5.3.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
-  },
-  "devDependencies": {
-    "eslint": "7.29.0",
-    "less": "^2.7.2",
-    "nodemon": "^2.0.12"
+
   }
+
 }
