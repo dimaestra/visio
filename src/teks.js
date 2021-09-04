@@ -1,12 +1,16 @@
 let teks = `
   <ul id="btmbar" class="uk-switcher uk-flex uk-flex-center"style="height: 100vh; align-items: center;">
     <li>
-      <video
+      <div style="position: relative">
+        <video
         playsinline
         autoplay
         muted
         id="vid"
-      ></video>
+        ></video>
+        <canvas id="overlay" style="position:absolute; top: 0; left: 0"
+        ></canvas>
+      </div>
     </li>
     <li>
       <p>
@@ -15,7 +19,8 @@ let teks = `
       </p>
     </li>
   </ul>
-  <div class="uk-navbar-container uk-flex-center uk-overlay uk-position-bottom uk-height-small" 
+  <div class="uk-navbar-container uk-flex-center uk-overlay uk-position-bottom uk-height-small"
+  style="align-items: center;" 
   uk-navbar>
     <div
       uk-switcher="connect: #btmbar; animation: uk-animation-fade; toggle: > *"
