@@ -20,9 +20,6 @@ function step() {
 const doOCR = async (c, dimension) => {
   const { data } = await scheduler.addJob("recognize", c);
   result(data, dimension);
-  if (data.confidence > 40) {
-    console.log(data.text);
-  }
   // speech.text = sanitizeText(text);
   // speechSynthesis.speak(speech);
   // console.log(sanitizeText(text));
@@ -35,12 +32,16 @@ function result(res, dimension) {
   const ctx = overlay.getContext("2d");
   overlay.width = dimension.width;
   overlay.height = dimension.height;
-  res.words.forEach(function (w) {
+  const wordsFilter = res.words.filter((wordsFilter) => {
+    wordsFilter.confidence > 0
+  });
+  console.log(wordsFilter);
+  wordsFilter.forEach((w) => {
     var b = w.bbox;
 
     ctx.strokeWidth = 2;
 
-    ctx.strokeStyle = "red";
+    ctx.strokeStyle = "green";
     ctx.lineWidth = 4;
     ctx.strokeRect(b.x0, b.y0, b.x1 - b.x0, b.y1 - b.y0);
     ctx.beginPath();
@@ -48,9 +49,9 @@ function result(res, dimension) {
     ctx.lineTo(w.baseline.x1, w.baseline.y1);
     ctx.stroke();
 
-    // octx.font = '20px Times';
-    // octx.font = 20 * (b.x1 - b.x0) / octx.measureText(w.text).width + "px Times";
-    // octx.fillText(w.text, b.x0, w.baseline.y0);
+  //   // octx.font = '20px Times';
+  //   // octx.font = 20 * (b.x1 - b.x0) / octx.measureText(w.text).width + "px Times";
+  //   // octx.fillText(w.text, b.x0, w.baseline.y0);
   });
 }
 

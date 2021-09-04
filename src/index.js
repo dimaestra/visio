@@ -32,7 +32,6 @@ const loadContent = () => {
           }
           objectDetector = ml5.objectDetector("yolo", modelLoaded);
         }
-        console.log("RUN");
         queue(doDetect);
       };
       loadDetect();

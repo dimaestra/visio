@@ -8,7 +8,7 @@ let detect = null;
 
 const loadedScripts = [];
 
-const loadScript = src => {
+const loadScript = (src) => {
   if (loadedScripts.includes(src)) {
     return Promise.reject;
   }
@@ -25,30 +25,26 @@ const loadScript = src => {
   });
 };
 
-const translate = text =>
+const translate = (text) =>
   fetch("/translate", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({ originalText: text })
+    body: JSON.stringify({ originalText: text }),
   });
 
 let objectDetector;
 
 // Detect objects in the video element
 const doDetect = async () => {
-  console.log("do detect run");
   const video = document.getElementById("vid");
   objectDetector.detect(video, async (err, result) => {
-    // console.log({ err });
-    // console.log({ result });
     const response = await translate(result[0].label);
     const { translation } = await response.json();
+    speech.text = translation;
+    speechSynthesis.speak(speech);
     console.log({ translation });
-    // const response = await translate(result[0].label);
-    // const { translation } = await response.json();
-    // console.log({ translation });
     // tinggal konekin ke speech synthesis
   });
 };
