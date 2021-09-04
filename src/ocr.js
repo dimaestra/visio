@@ -24,10 +24,10 @@ const doOCR = async () => {
   const height = parseInt(video.getPropertyValue("height"));
   c.width = width;
   c.height = height;
+  c.style.filter = "grayscale(120%)";
   ctx.drawImage(vid, 0, 0, c.width, c.height);
   const { data } = await scheduler.addJob("recognize", c);
   result(data, { width, height });
-
   // console.log(data)
   // speech.text = sanitizeText(text);
   // speechSynthesis.speak(speech);
@@ -43,7 +43,8 @@ function result(res, dimension) {
   overlay.height = dimension.height;
   let wordsFilter = [];
   wordsFilter = res.words.filter((wordsFilter) => {
-    return wordsFilter.confidence > 60;
+    return wordsFilter.confidence > 80 && 
+           wordsFilter.text.match(/[a-zA-Z0-9]/g);
   });
   wordsFilter.forEach((w) => {
     console.log(w.text);

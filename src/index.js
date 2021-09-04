@@ -5,7 +5,7 @@ let routes = {
 };
 let queueCount = [];
 const queue = process => {
-  queueCount.push(setInterval(process, 3000));
+  queueCount.push(setInterval(process, 1000));
 };
 const removeQueue = () => {
   queueCount.forEach(clearInterval);
