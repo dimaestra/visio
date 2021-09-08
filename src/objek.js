@@ -1,12 +1,16 @@
 let objek = `
 <ul id="btmbar" class="uk-switcher uk-flex uk-flex-center"style="height: 100vh; align-items: center;">
     <li>
-      <video 
-        playsinline 
-        autoplay 
-        muted 
-        id="vid"
-      ></video>
+      <div style="position: relative">
+        <video 
+          playsinline 
+          autoplay 
+          muted 
+          id="vid"
+        ></video>
+        <canvas id="overlay" style="position:absolute; top: 0; left: 0"
+        ></canvas>
+        </div>
     </li>
 </ul>
 <div class="uk-navbar-container uk-flex-center uk-overlay uk-position-bottom uk-height-small"

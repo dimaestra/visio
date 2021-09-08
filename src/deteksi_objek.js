@@ -37,15 +37,33 @@ const translate = (text) =>
 let objectDetector;
 
 // Detect objects in the video element
-const doDetect = async () => {
+const doDetect = (err, results) => {
   const video = document.getElementById("vid");
-  objectDetector.detect(video, async (err, result) => {
-    const response = await translate(result[0].label);
-    const { translation } = await response.json();
-    speech.text = translation;
-    speechSynthesis.speak(speech);
-    console.log({ translation });
-    // tinggal konekin ke speech synthesis
+  res(results);
+  objectDetector.detect(video, doDetect);
+  // const response = await translate(result[0].label);
+  // const { translation } = await response.json();
+  // speech.text = translation;
+  // speechSynthesis.speak(speech);
+  // tinggal konekin ke speech synthesis
+};
+
+function res(results) {
+  const overlay = document.getElementById("overlay");
+  const ctx = overlay.getContext("2d");
+  const _video = document.getElementById("vid");
+  const video = window.getComputedStyle(_video);
+  const width = parseInt(video.getPropertyValue("width"));
+  const height = parseInt(video.getPropertyValue("height"));
+  overlay.width = width;
+  overlay.height = height;
+
+  results.forEach((o) => {
+    console.log(o.label);
+    ctx.beginPath();
+    ctx.strokeStyle = "#2b2bff";
+    ctx.strokeRect(o.x, o.y, o.width, o.height);
+    ctx.stroke();
   });
 };
 // const objectDetector = ml5.objectDetector("yolo", {}, modelLoaded);

@@ -4,10 +4,6 @@ speech.volume = 1;
 speech.pitch = 0.5;
 speech.rate = 0.5;
 
-const sanitizeText = (text) => {
-  return text.replace(/[^a-zA-Z0-9 ]/g, "");
-};
-
 // const speech = new SpeechSynthesisUtterance();
 // const defaultConfig = {
 //   lang: "id",
