@@ -57,7 +57,8 @@ function res(results) {
   results.forEach((o) => {
     resultsCount.push(o.label);
     ctx.beginPath();
-    ctx.strokeStyle = "#2b2bff";
+    ctx.strokeStyle = "#4d4dff";
+    ctx.lineWidth = 3;
     ctx.strokeRect(o.x, o.y, o.width, o.height);
     ctx.stroke();
   });

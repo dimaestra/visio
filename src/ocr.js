@@ -32,7 +32,8 @@ function result(res, dimension) {
     wordsCount.push(w.text);
     let b = w.bbox;
     ctx.beginPath();
-    ctx.strokeStyle = "#2b2bff";
+    ctx.strokeStyle = "#4d4dff";
+    ctx.lineWidth = 3;
     ctx.strokeRect(b.x0, b.y0, b.x1 - b.x0, b.y1 - b.y0);
     ctx.stroke();
   });
