@@ -19,7 +19,7 @@ let teks = `
         <span class="uk-text-middle">Unggah dokumen Anda</span>
         <div uk-form-custom>
           <input type="file" multiple>
-          <span class="uk-link">di sini</span>
+          <span aria-label="Di sini"class="uk-link">di sini</span>
         </div>
       </div>
       <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
