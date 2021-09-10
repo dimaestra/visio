@@ -47,8 +47,7 @@ app.use(express.static("."));
 app.post("/translate", async (req, res) => {
   try {
     await translate(req.body.originalText, "en", "id", true).then(result => {
-      res.writeHead(200);
-      res.end(JSON.stringify(result));
+      res.status(200).send(result);
     });
   } catch (err) {
     console.log({ err });

@@ -62,7 +62,7 @@ function res(results) {
     ctx.stroke();
   });
 }
-const speechOutput = async () => {
+const resultsOutput = async () => {
   const response = await translate(resultsCount[0]);
   const { translation } = await response.json();
   speech.text = translation;

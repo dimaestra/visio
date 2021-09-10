@@ -17,7 +17,7 @@ const doOCR = async () => {
   const { data } = await scheduler.addJob("recognize", c);
   result(data, { width, height });
 };
-
+let wordsCount = [];
 function result(res, dimension) {
   const overlay = document.getElementById("overlay");
   const ctx = overlay.getContext("2d");
@@ -29,13 +29,19 @@ function result(res, dimension) {
            wordsFilter.text.match(/[a-zA-Z0-9]/g);
   });
   wordsFilter.forEach((w) => {
-    console.log(w.text);
+    wordsCount.push(w.text);
     let b = w.bbox;
     ctx.beginPath();
     ctx.strokeStyle = "#2b2bff";
     ctx.strokeRect(b.x0, b.y0, b.x1 - b.x0, b.y1 - b.y0);
     ctx.stroke();
   });
+}
+
+const wordsOutput = () => {
+  speech.text = wordsCount;
+  speechSynthesis.speak(speech);
+  wordsCount = [];
 }
 
 const langLoader = async () => {

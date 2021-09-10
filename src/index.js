@@ -23,6 +23,7 @@ const loadContent = () => {
       const addedWorker = scheduler.addWorker(worker);
       if (langLoaded && addedWorker) {
         intervalQueue(doOCR);
+        intervalQueue(wordsOutput);
       };
       break;
 
@@ -41,7 +42,7 @@ const loadContent = () => {
         }
         const video = document.getElementById("vid");
         video.onload = objectDetector.detect(video, doDetect);
-        intervalQueue(speechOutput);
+        intervalQueue(resultsOutput);
       };
       loadDetect();
       break;
