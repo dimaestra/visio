@@ -41,13 +41,9 @@ const doDetect = (err, results) => {
   const video = document.getElementById("vid");
   res(results);
   objectDetector.detect(video, doDetect);
-  // const response = await translate(result[0].label);
-  // const { translation } = await response.json();
-  // speech.text = translation;
-  // speechSynthesis.speak(speech);
   // tinggal konekin ke speech synthesis
 };
-
+let resultsCount = [];
 function res(results) {
   const overlay = document.getElementById("overlay");
   const ctx = overlay.getContext("2d");
@@ -59,12 +55,19 @@ function res(results) {
   overlay.height = height;
 
   results.forEach((o) => {
-    console.log(o.label);
+    resultsCount.push(o.label);
     ctx.beginPath();
     ctx.strokeStyle = "#2b2bff";
     ctx.strokeRect(o.x, o.y, o.width, o.height);
     ctx.stroke();
   });
+}
+const speechOutput = async () => {
+  const response = await translate(resultsCount[0]);
+  const { translation } = await response.json();
+  speech.text = translation;
+  speechSynthesis.speak(speech);
+  resultsCount = [];
 };
 // const objectDetector = ml5.objectDetector("yolo", {}, modelLoaded);
 // objectDetector.detect(video, (err, results) => {

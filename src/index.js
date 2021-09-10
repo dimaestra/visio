@@ -7,7 +7,7 @@ let routes = {
 let queueCount = [];
 
 const intervalQueue = (process) => {
-  queueCount.push(setInterval(process, 1000));
+  queueCount.push(setInterval(process, 3000));
 };
 
 const removeQueue = () => {
@@ -41,6 +41,7 @@ const loadContent = () => {
         }
         const video = document.getElementById("vid");
         video.onload = objectDetector.detect(video, doDetect);
+        intervalQueue(speechOutput);
       };
       loadDetect();
       break;
