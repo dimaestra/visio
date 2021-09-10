@@ -2,6 +2,7 @@ let objek = `
 <div class="uk-flex uk-flex-center"style="height: 100vh; align-items: center;">
       <div style="position: relative">
         <video 
+          aria-label="Video"
           playsinline 
           autoplay 
           muted 

@@ -3,6 +3,7 @@ let teks = `
     <li>
       <div style="position: relative">
         <video
+        aria-label="Video"
         playsinline
         autoplay
         muted
@@ -13,19 +14,15 @@ let teks = `
       </div>
     </li>
     <li>
-    <div class="js-upload uk-placeholder uk-text-center">
-    <span uk-icon="icon: cloud-upload"></span>
-    <span class="uk-text-middle">Attach binaries by dropping them here or</span>
-    <div uk-form-custom>
-        <input type="file" multiple>
-        <span class="uk-link">selecting one</span>
-    </div>
-</div>
-
-<progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
-
-
-
+      <div class="js-upload uk-placeholder uk-text-center">
+        <span uk-icon="icon: cloud-upload"></span>
+        <span class="uk-text-middle">Attach binaries by dropping them here or</span>
+        <div uk-form-custom>
+          <input type="file" multiple>
+          <span class="uk-link">selecting one</span>
+        </div>
+      </div>
+      <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
     </li>
   </ul>
   <div class="uk-navbar-container uk-flex-center uk-overlay uk-position-bottom uk-height-small"
@@ -34,10 +31,10 @@ let teks = `
     <div
       uk-switcher="connect: #btmbar; animation: uk-animation-fade; toggle: > *"
     >
-      <button class="uk-button uk-button-primary uk-width-small uk-active"onclick="onNavItemClick('/');">
+      <button aria-label="Deteksi"class="uk-button uk-button-primary uk-width-small uk-active"onclick="onNavItemClick('/');">
         <img src="img/btmbar/deteksi.svg" uk-svg />
       </button>
-      <button class="uk-button uk-button-secondary uk-width-small"onclick="removeQueue();">
+      <button aria-label="Pembaca Dokumen"class="uk-button uk-button-secondary uk-width-small"onclick="removeQueue();">
         <img src="img/btmbar/baca.svg" uk-svg />
       </button>
     </div>
