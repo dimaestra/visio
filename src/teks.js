@@ -16,10 +16,10 @@ let teks = `
     <li>
       <div class="js-upload uk-placeholder uk-text-center">
         <span uk-icon="icon: cloud-upload"></span>
-        <span class="uk-text-middle">Attach binaries by dropping them here or</span>
+        <span class="uk-text-middle">Unggah dokumen Anda</span>
         <div uk-form-custom>
           <input type="file" multiple>
-          <span class="uk-link">selecting one</span>
+          <span class="uk-link">di sini</span>
         </div>
       </div>
       <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
