@@ -38,7 +38,7 @@ const loadContent = () => {
           function modelLoaded() {
             console.log("Model Loaded!");
           }
-          objectDetector = ml5.objectDetector("cocossd", modelLoaded);
+          objectDetector = ml5.objectDetector("yolo", modelLoaded);
         }
         const video = document.getElementById("vid");
         video.onload = objectDetector.detect(video, doDetect);
