@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: visioid.herokuapp.com
+Token: 6a3803c558ff508c600f5ea547eed7430ae376963e5af6b2762ed0d91cc6785f
